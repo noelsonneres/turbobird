@@ -490,6 +490,7 @@ begin
   end;
   if Pos(';', Result) > 0 then
     Delete(Result, Pos(';', Result), 1);
+
 end;
 
 
@@ -1685,11 +1686,11 @@ begin
   SynCompletion1.ItemList.CommaText:= 'create,table,Select,From,INTEGER,FLOAT';
   SortSynCompletion;
 
-  // Set the editor font from config.ini
+   //Set the editor font from config.ini
   configFilePath:= ConcatPaths([ExtractFilePath(Application.ExeName), 'config.ini']);
   configFile:= TIniFile.Create(configFilePath);
-  meQuery.Font.Name:=configFile.ReadString('Editor Font', 'font_name', 'Monospace');
-  meQuery.Font.Size:=configFile.ReadInteger('Editor Font', 'font_size', 11);
+  meQuery.Font.Name:=configFile.ReadString('Editor Font', 'font_name', '');
+  meQuery.Font.Size:=configFile.ReadInteger('Editor Font', 'font_size', 12);
   configFile.Free;
 end;
 
